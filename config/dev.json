@@ -1,0 +1,13 @@
+{
+  "program": "2db6jK7S2fNpHNCAF6vgnQyiNuUyhLCD2cWMis5pk9rs",
+  "pools" : [
+    {
+      "pair" : "CHICKS-SHARDS",
+      "tokenXMint" : "FUnRfJAJiTtpSGP9uP5RtFm4QPsYUPTVgSMoYrgVyNzQ",
+      "tokenYMint" : "D5w6VCymZSXmBeEYudP4DBgEdajjg6x8t4b5ZXuaJmyw",
+      "swapRate": 1,
+      "init_deposit" : 10000,
+      "lp_decimals" : 9
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name" : "Catheon Game Pools",
+  "programId": "2db6jK7S2fNpHNCAF6vgnQyiNuUyhLCD2cWMis5pk9rs",
+  "official" : [
+    {
+      "id": "3885e941d0194a43d54d421759d39eff",
+      "pair" : "CHICKS-SHARDS",
+      "baseMint" : "FUnRfJAJiTtpSGP9uP5RtFm4QPsYUPTVgSMoYrgVyNzQ",
+      "quoteMint" : "D5w6VCymZSXmBeEYudP4DBgEdajjg6x8t4b5ZXuaJmyw",
+      "lpMint" : "DvgEK95Q8zHk2xqb1yifhQ2Sg6zCudYtXaiV3q3o9TR5",
+      "baseDecimals": 9,
+      "quoteDecimals": 9,
+      "lpDecimals": 9,
+      "authority": "CDZYsheLGK5dGscxjS9Ctwtb4W3BnjKqHFUMYAu6b9Nu",
+      "baseVault": "A5vWxkPCPqVGsqEuMw5FgbmvvDdaSNA1pqC9MvEoCzGE",
+      "quoteVault": "EdGTWqcUAtg5SuPx8FYrmdMjk6QDGdY6f6qmk4x8Zcpj"
+    }
+  ]
+}

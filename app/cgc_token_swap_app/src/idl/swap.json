@@ -1,0 +1,617 @@
+{
+  "version": "0.1.0",
+  "name": "cgc_token_swap",
+  "instructions": [
+    {
+      "name": "setup",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        },
+        {
+          "name": "nonceConfig",
+          "type": "u8"
+        },
+        {
+          "name": "feeNumerator",
+          "type": "u64"
+        },
+        {
+          "name": "feeDenominator",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "toggleFreezeProgram",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "toggleFreezeLiquidity",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "toggleFreezeSwap",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "initPool",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userLpVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        },
+        {
+          "name": "tokenXAmount",
+          "type": "u64"
+        },
+        {
+          "name": "tokenYAmount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "depositLiquidity",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userLpVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        },
+        {
+          "name": "tokenXAmount",
+          "type": "u64"
+        },
+        {
+          "name": "tokenYAmount",
+          "type": "u64"
+        },
+        {
+          "name": "slippage",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "withdrawLiquidity",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userLpVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        },
+        {
+          "name": "burnAmount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "swap",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenXVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenYVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolTokenPair",
+          "type": "string"
+        },
+        {
+          "name": "amountIn",
+          "type": "u64"
+        },
+        {
+          "name": "minAmountOut",
+          "type": "u64"
+        },
+        {
+          "name": "direct",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poolTokenPair",
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "poolMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenXMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenYMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenXVault",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenYVault",
+            "type": "publicKey"
+          },
+          {
+            "name": "totalAmountMinted",
+            "type": "u64"
+          },
+          {
+            "name": "feeNumerator",
+            "type": "u64"
+          },
+          {
+            "name": "feeDenominator",
+            "type": "u64"
+          },
+          {
+            "name": "freezeSwap",
+            "type": "bool"
+          },
+          {
+            "name": "freezeLiquidity",
+            "type": "bool"
+          },
+          {
+            "name": "poolInit",
+            "type": "bool"
+          },
+          {
+            "name": "freezeProgram",
+            "type": "bool"
+          },
+          {
+            "name": "nonce",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "PermissionError",
+      "msg": "Permission Error"
+    },
+    {
+      "code": 6001,
+      "name": "FreezeProgramError",
+      "msg": "The contract frozen"
+    },
+    {
+      "code": 6002,
+      "name": "PoolNotFoundError",
+      "msg": "The Pool not found"
+    },
+    {
+      "code": 6003,
+      "name": "PoolAlreadyInitError",
+      "msg": "The Pool already Init"
+    },
+    {
+      "code": 6004,
+      "name": "FreezeLiquidityError",
+      "msg": "The Liquidity frozen"
+    },
+    {
+      "code": 6005,
+      "name": "FreezeSwapError",
+      "msg": "The Swap frozen"
+    },
+    {
+      "code": 6006,
+      "name": "NotEnoughBalance",
+      "msg": "Not Enough Balance Error"
+    },
+    {
+      "code": 6007,
+      "name": "NoPoolMintOutput",
+      "msg": "Pool Mint Amount < 0 on LP Deposit"
+    },
+    {
+      "code": 6008,
+      "name": "BurnTooMuch",
+      "msg": "Trying to burn too much"
+    },
+    {
+      "code": 6009,
+      "name": "NotEnoughOutError",
+      "msg": "Not enough out"
+    }
+  ],
+  "metadata": {
+    "address": "2db6jK7S2fNpHNCAF6vgnQyiNuUyhLCD2cWMis5pk9rs"
+  }
+}
